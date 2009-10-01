@@ -39,7 +39,6 @@ DEPEND="${RDEPEND}
 src_unpack() {
 	git_src_unpack
 	cd "${S}"
-
 }
 
 src_compile() {
@@ -47,6 +46,13 @@ src_compile() {
 }
 
 src_install() {
-	emake DESTDIR="${D}" install || die "Installation failed"
-	dodoc AUTHORS README
+	# The Makefile appends '/usr/local' to DESTDIR to get PREFIX, so we simply
+	# set PREFIX ourself.
+	emake PREFIX="${D}/usr" install || die "Installation failed"
+	# Move the docs to /usr/share/doc instead.
+	dodoc AUTHORS README docs/*
+	# Move the config.h to /usr/share/uzbl instead.
+	mv "${D}/usr/share/uzbl/docs/config.h" "${D}/usr/share/uzbl"
+	# Remove the docs/ directory, we have everything we need.
+	rm -rf "${D}/usr/share/uzbl/docs"
 }
