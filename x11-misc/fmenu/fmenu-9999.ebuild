@@ -7,7 +7,7 @@ inherit toolchain-funcs savedconfig git
 EGIT_REPO_URI='git://github.com/scy/fmenu.git'
 
 DESCRIPTION="a generic, highly customizable, and efficient menu for the X Window System with enhanced features"
-HOMEPAGE="http://www.suckless.org/programs/dmenu.html"
+HOMEPAGE="http://scytale.name/proj/fmenu/"
 SRC_URI=""
 
 LICENSE="MIT"
