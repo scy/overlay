@@ -2,26 +2,27 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
+EAPI="2"
+
 inherit toolchain-funcs savedconfig
 
 DESCRIPTION="a generic, highly customizable, and efficient menu for the X Window System with enhanced features"
 HOMEPAGE="http://scytale.name/proj/fmenu/"
-SRC_URI="http://github.com/scy/${PN}/tarball/v${PV}/${P}.tar.gz"
+SRC_URI="http://github.com/scy/${PN}/tarball/v${PV} -> ${P}.tar.gz"
 
 LICENSE="MIT"
 SLOT="0"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS="~x86"
 IUSE="xinerama"
 
 DEPEND="x11-libs/libX11
         xinerama? ( x11-libs/libXinerama )"
 RDEPEND="${DEPEND}"
-S="${WORKDIR}"
+
+S="${WORKDIR}/scy-${PN}-431d932"
 
 src_unpack() {
 	unpack "${A}"
-	cd "${S}"
-	S="${S}/$(ls -d scy-${PN}-*)"
 	cd "${S}"
 
 	sed -i \
