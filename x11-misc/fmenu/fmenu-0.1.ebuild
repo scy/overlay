@@ -16,15 +16,12 @@ KEYWORDS="~x86"
 IUSE="xinerama"
 
 DEPEND="x11-libs/libX11
-        xinerama? ( x11-libs/libXinerama )"
+	xinerama? ( x11-libs/libXinerama )"
 RDEPEND="${DEPEND}"
 
 S="${WORKDIR}/scy-${PN}-431d932"
 
-src_unpack() {
-	unpack "${A}"
-	cd "${S}"
-
+src_prepare() {
 	sed -i \
 		-e "s/CFLAGS = -std=c99 -pedantic -Wall -Os/CFLAGS += -std=c99 -pedantic -Wall -g/" \
 		-e "s/LDFLAGS = -s/LDFLAGS += -g/" \
@@ -52,9 +49,9 @@ src_install() {
 	emake DESTDIR="${D}" PREFIX="/usr" install || die "emake install failed"
 
 	insinto /usr/share/${PN}
-	newins config.h ${PF}.config.h
+	newins config.h ${PF}.config.h || die "newins failed"
 
-	dodoc README
+	dodoc README || die "dodoc failed"
 
 	save_config config.h
 }
