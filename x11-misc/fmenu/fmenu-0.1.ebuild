@@ -49,7 +49,7 @@ src_install() {
 	emake DESTDIR="${D}" PREFIX="/usr" install || die "emake install failed"
 
 	insinto /usr/share/${PN}
-	newins config.h ${PF}.config.h || die "newins failed"
+	newins config.h ${P}.config.h || die "newins failed"
 
 	dodoc README || die "dodoc failed"
 
@@ -57,7 +57,9 @@ src_install() {
 }
 
 pkg_postinst() {
-	einfo "This ebuild has support for user defined configs"
-	einfo "Please read this ebuild for more details and re-emerge as needed"
-	einfo "if you want to add or remove functionality for ${PN}"
+	if use savedconfig; then
+		einfo "This ebuild has support for user defined configs"
+		einfo "Please read this ebuild for more details and re-emerge as needed"
+		einfo "if you want to add or remove functionality for ${PN}"
+	fi
 }
