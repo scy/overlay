@@ -57,7 +57,7 @@ src_install() {
 }
 
 pkg_postinst() {
-	if use savedconfig; then
+	if ! use savedconfig; then
 		einfo "This ebuild has support for user defined configs"
 		einfo "Please read this ebuild for more details and re-emerge as needed"
 		einfo "if you want to add or remove functionality for ${PN}"
