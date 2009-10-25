@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-EAPI="0"
+EAPI="2"
 
 DESCRIPTION="A Jabber/XMPP plugin for irssi."
 HOMEPAGE="http://cybione.org/~irssi-xmpp/"
@@ -14,7 +14,7 @@ KEYWORDS="~x86"
 IUSE=""
 
 DEPEND=">=net-irc/irssi-0.8.13
-	>=net-libs/loudmouth-1.2.0"
+	>=net-libs/loudmouth-1.2.0[debug]"
 RDEPEND="${DEPEND}"
 
 src_compile() {
@@ -29,9 +29,4 @@ src_install() {
 		DESTDIR="${D}" PREFIX="/usr" \
 		IRSSI_DOC="/usr/share/doc/${PF}" \
 		install || die "install failed"
-}
-
-pkg_postinst() {
-	elog "If your status window gets spammed with \"error\" messages,"
-	elog "try rebuilding net-libs/loudmouth with(!) USE=debug."
 }
