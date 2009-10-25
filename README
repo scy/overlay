@@ -1,0 +1,64 @@
+SCYTALE’S PORTAGE OVERLAY
+=========================
+
+These are my personal additions and corrections to the official Gentoo Portage 
+tree. There are three possible reasons why an Ebuild may end up here: Because 
+the package is not (yet) in Portage, or in an obsolete version, or the package 
+in Portage sucks.
+
+New packages will be submitted to Sunrise as well, so you might as well get them 
+there. If you are afraid of taking software from someone you don’t know, use 
+Sunrise, not this overlay.
+
+
+Contents
+--------
+
+dev-php5/phpunit-3.4.0
+   Newer than the version currently in Portage, supports process separation. Not 
+   tested thoroughly. Use at your own risk.
+
+net-im/irssi-xmpp-0.50
+   An irssi plugin (not a script) that allows you to use XMPP (Jabber) natively 
+   in irssi. Works pretty well, but not yet submitted to sunrise, since testing 
+   is not finished yet.
+
+www-client/uzbl-9999
+   A Unix-philosophy based browser. I was using it for a week or two, but it’s 
+   just not ready yet. This is the Git-based Ebuild, which will not be updated 
+   anymore, at least not before I decide to use it again. See #270995 for 
+   probably more up-to-date Ebuilds.
+
+x11-misc/fmenu-0.1
+   A fork of x11-misc/dmenu with more features. Is in sunrise, see #287493.
+
+x11-misc/fmenu-9999
+   The Git-sources Ebuild for fmenu. Not as tested as the 0.1 version, but has 
+   more features, see <http://github.com/scy/fmenu/blob/master/CHANGES>.
+
+
+How to use it
+-------------
+
+Install Gentoo’s overlay manager, layman. Make sure you include Git support 
+(i.e. USE=git). Then, add my overlay like this:
+
+  sed -i -e \
+   's#^overlays *:.*#\0\n            http://scytale.name/proj/overlay.xml#' \
+   /etc/layman/layman.cfg
+   # That is, add „http://scytale.name/proj/overlay.xml“ to the „overlays“
+   # setting in /etc/layman/layman.cfg. Do that manually if it doesn’t work.
+  layman -a scy     # Clone my repo.
+
+That’s it.
+
+
+Support
+-------
+
+Wait, what? I thought this was open source.
+
+Seriously now, if you need support _with_my_overlay_, not the software you 
+install trough it, have a look at http://scytale.name/contact/ and ask. I 
+reserve the right to ignore you if I don’t have the time to reply. I reserve the 
+right to ignore and/or laugh at you if your question is stupid.
