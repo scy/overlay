@@ -23,18 +23,21 @@ net-im/irssi-xmpp-0.50
    in irssi. Works pretty well, but not yet submitted to sunrise, since testing 
    is not finished yet.
 
-www-client/uzbl-9999
-   A Unix-philosophy based browser. I was using it for a week or two, but it’s 
-   just not ready yet. This is the Git-based Ebuild, which will not be updated 
-   anymore, at least not before I decide to use it again. See #270995 for 
-   probably more up-to-date Ebuilds.
-
 x11-misc/fmenu-0.1
    A fork of x11-misc/dmenu with more features. Is in sunrise, see #287493.
 
 x11-misc/fmenu-9999
    The Git-sources Ebuild for fmenu. Not as tested as the 0.1 version, but has 
    more features, see <http://github.com/scy/fmenu/blob/master/CHANGES>.
+
+
+Ex-Contents
+-----------
+
+www-client/uzbl-9999
+   A Unix-philosophy based browser. I was using it for a week or two, but it’s 
+   just not ready yet. See #270995 for probably more up-to-date ebuilds. The one 
+   that has been in my overlay is attachment 205791 added 2009-10-01 22:24.
 
 
 How to use it
