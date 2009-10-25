@@ -23,6 +23,11 @@ net-im/irssi-xmpp-0.50
    in irssi. Works pretty well, but not yet submitted to sunrise, since testing 
    is not finished yet.
 
+x11-apps/xdm-1.1.9-r1
+   Fixes the “this is an insecure session” bug in Portage’s xdm-1.1.9, see 
+   #286350. Additionally, introduces an “xconsole” flag to make it possible to 
+   disable the, imho useless, xconsole at startup.
+
 x11-misc/fmenu-0.1
    A fork of x11-misc/dmenu with more features. Is in sunrise, see #287493.
 
