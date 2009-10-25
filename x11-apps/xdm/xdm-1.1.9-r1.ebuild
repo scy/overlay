@@ -49,7 +49,7 @@ src_install() {
 	doexe "${FILESDIR}"/Xsession
 	newpamd "${FILESDIR}"/xdm.pamd xdm
 
-	# Keep /var/lib/xdm. This is where authfiles are stored.
+	# Keep /var/lib/xdm. This is where authfiles are stored. See #286350.
 	keepdir /var/lib/xdm
 }
 
