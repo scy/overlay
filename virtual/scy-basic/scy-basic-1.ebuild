@@ -22,6 +22,7 @@ RDEPEND="|| ( app-admin/metalog virtual/logger )
 	dev-util/ccache
 	dev-util/strace
 	media-fonts/terminus-font
+	media-gfx/imagemagick[jpeg,png,svg]
 	net-analyzer/netcat
 	net-analyzer/wireshark
 	net-dns/bind-tools
@@ -31,6 +32,7 @@ RDEPEND="|| ( app-admin/metalog virtual/logger )
 	net-misc/dhcpcd
 	net-misc/openvpn[iproute2]
 	net-misc/tor
+	net-print/cups
 	sys-devel/gdb
 	sys-fs/cryptsetup
 	"
