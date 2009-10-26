@@ -19,6 +19,7 @@ RDEPEND="|| ( app-admin/metalog virtual/logger )
 	app-portage/eix
 	app-portage/gentoolkit
 	app-portage/layman[git,subversion]
+	app-text/asciidoc[vim-syntax]
 	dev-util/ccache
 	dev-util/strace
 	media-fonts/terminus-font
