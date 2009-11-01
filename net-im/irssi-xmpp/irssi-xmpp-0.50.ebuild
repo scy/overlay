@@ -4,7 +4,7 @@
 
 EAPI="2"
 
-DESCRIPTION="A Jabber/XMPP plugin for irssi."
+DESCRIPTION="A Jabber/XMPP plugin for irssi"
 HOMEPAGE="http://cybione.org/~irssi-xmpp/"
 SRC_URI="http://cybione.org/~${PN}/files/${P}.tar.gz"
 
