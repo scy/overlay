@@ -14,8 +14,10 @@ KEYWORDS="~x86"
 IUSE=""
 
 DEPEND=""
-RDEPEND="|| ( app-admin/metalog virtual/logger )
+RDEPEND="app-admin/apg
+	|| ( app-admin/metalog virtual/logger )
 	app-misc/screen
+	app-misc/wyrd
 	app-portage/eix
 	app-portage/gentoolkit
 	app-portage/layman[git,subversion]
@@ -36,4 +38,5 @@ RDEPEND="|| ( app-admin/metalog virtual/logger )
 	net-print/cups
 	sys-devel/gdb
 	sys-fs/cryptsetup
+	sys-fs/dosfstools
 	"
