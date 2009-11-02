@@ -20,8 +20,7 @@ dev-php5/phpunit-3.4.0
 
 net-im/irssi-xmpp-0.50
    An irssi plugin (not a script) that allows you to use XMPP (Jabber) natively 
-   in irssi. Works pretty well, but not yet submitted to sunrise, since testing 
-   is not finished yet.
+   in irssi. Currently working on getting this into Sunrise, see #291577.
 
 virtual/scy-basic-1
    The tools I want to have on every machine I work with. Simply depends on each 
