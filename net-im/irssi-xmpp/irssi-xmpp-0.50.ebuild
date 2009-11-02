@@ -21,9 +21,13 @@ RDEPEND="${DEPEND}"
 
 src_prepare() {
 	# Patch config.mk to allow external CFLAGS and LDFLAGS.
-	# This can probably be removed after 0.50 since upstream fixed it.
-	sed -i -e "s#^CFLAGS = #CFLAGS = ${CFLAGS} #" \
+	# Those can probably be removed after 0.50 since upstream fixed it.
+	# Also set PREFIX and CC to the values we prefer.
+	sed -i \
+		-e "s#^CFLAGS = #CFLAGS = ${CFLAGS} #" \
 		-e "s#^LDFLAGS = #LDFLAGS = ${LDFLAGS} #" \
+		-e "/^PREFIX ?\\?= /cPREFIX = /usr" \
+		-e "/^CC = /cCC = $(tc-getCC)" \
 		config.mk || die "patching config.mk failed"
 	# Patch Makefile to remove /irssi-xmpp suffix for docs.
 	sed -i -e 's#\${IRSSI_DOC}/irssi-xmpp$#${IRSSI_DOC}#' \
@@ -31,11 +35,10 @@ src_prepare() {
 }
 
 src_compile() {
-	emake CC="$(tc-getCC)" PREFIX="/usr" || die "emake failed"
+	emake || die "emake failed"
 }
 
 src_install() {
-	emake CC="$(tc-getCC)" DESTDIR="${D}" PREFIX="/usr" \
-		IRSSI_DOC="/usr/share/doc/${PF}" \
+	emake DESTDIR="${D}" IRSSI_DOC="/usr/share/doc/${PF}" \
 		install || die "install failed"
 }
