@@ -2,6 +2,8 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
+inherit toolchain-funcs
+
 EAPI="2"
 
 DESCRIPTION="An irssi plugin providing Jabber/XMPP support"
@@ -24,12 +26,11 @@ src_prepare() {
 }
 
 src_compile() {
-	emake PREFIX="/usr" || die "emake failed"
+	emake CC="$(tc-getCC)" PREFIX="/usr" || die "emake failed"
 }
 
 src_install() {
 	emake \
-		DESTDIR="${D}" PREFIX="/usr" \
-		IRSSI_DOC="/usr/share/doc/${PF}" \
+		DESTDIR="${D}" IRSSI_DOC="/usr/share/doc/${PF}" \
 		install || die "install failed"
 }
