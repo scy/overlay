@@ -20,11 +20,13 @@ DEPEND=">=net-irc/irssi-0.8.13
 RDEPEND="${DEPEND}"
 
 src_prepare() {
-	# Patch Makefile to remove /irssi-xmpp suffix for docs and to allow
-	# custom CFLAGS and LDDFLAGS.
-	sed -i -e 's#\${IRSSI_DOC}/irssi-xmpp$#${IRSSI_DOC}#' \
-		-e 's#^CFLAGS = #CFLAGS += #' \
+	# Patch config.mk to allow external CFLAGS and LDDFLAGS.
+	# This can be removed after 0.50 since upstream fixed it.
+	sed -i -e 's#^CFLAGS = #CFLAGS += #' \
 		-e 's#^LDDFLAGS = #LDDFLAGS += #' \
+		config.mk || die "patching config.mk failed"
+	# Patch Makefile to remove /irssi-xmpp suffix for docs.
+	sed -i -e 's#\${IRSSI_DOC}/irssi-xmpp$#${IRSSI_DOC}#' \
 		Makefile || die "patching Makefile failed"
 }
 
