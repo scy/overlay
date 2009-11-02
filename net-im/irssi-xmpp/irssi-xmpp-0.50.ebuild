@@ -8,7 +8,7 @@ DESCRIPTION="A Jabber/XMPP plugin for irssi"
 HOMEPAGE="http://cybione.org/~irssi-xmpp/"
 SRC_URI="http://cybione.org/~${PN}/files/${P}.tar.gz"
 
-LICENSE="GPLv2"
+LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="~x86"
 IUSE=""
