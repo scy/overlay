@@ -22,8 +22,8 @@ RDEPEND="${DEPEND}"
 src_prepare() {
 	# Patch config.mk to allow external CFLAGS and LDFLAGS.
 	# This can be removed after 0.50 since upstream fixed it.
-	sed -i -e 's#^CFLAGS = #CFLAGS += #' \
-		-e 's#^LDFLAGS = #LDFLAGS += #' \
+	sed -i -e "s#^CFLAGS = #CFLAGS = ${CFLAGS} #" \
+		-e "s#^LDFLAGS = #LDFLAGS = ${LDFLAGS} #" \
 		config.mk || die "patching config.mk failed"
 	# Patch Makefile to remove /irssi-xmpp suffix for docs.
 	sed -i -e 's#\${IRSSI_DOC}/irssi-xmpp$#${IRSSI_DOC}#' \
