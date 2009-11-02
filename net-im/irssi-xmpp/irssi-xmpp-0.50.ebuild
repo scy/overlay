@@ -17,10 +17,13 @@ DEPEND=">=net-irc/irssi-0.8.13
 	>=net-libs/loudmouth-1.2.0[debug]"
 RDEPEND="${DEPEND}"
 
-src_compile() {
+src_prepare() {
 	# Patch Makefile to remove /irssi-xmpp suffix for docs.
 	sed -i -e 's#\${IRSSI_DOC}/irssi-xmpp$#${IRSSI_DOC}#' \
 		Makefile || die "patching Makefile failed"
+}
+
+src_compile() {
 	emake PREFIX="/usr" || die "emake failed"
 }
 
