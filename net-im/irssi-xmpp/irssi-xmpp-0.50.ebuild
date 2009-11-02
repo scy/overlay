@@ -34,10 +34,6 @@ src_prepare() {
 		Makefile || die "patching Makefile failed"
 }
 
-src_compile() {
-	emake || die "emake failed"
-}
-
 src_install() {
 	emake DESTDIR="${D}" IRSSI_DOC="/usr/share/doc/${PF}" \
 		install || die "install failed"
