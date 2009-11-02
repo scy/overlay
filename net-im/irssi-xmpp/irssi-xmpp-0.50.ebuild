@@ -20,7 +20,7 @@ DEPEND=">=net-irc/irssi-0.8.13
 RDEPEND="${DEPEND}"
 
 src_prepare() {
-	# Patch config.mk to allow external CFLAGS and LDFLAGS.
+	# Patch config.mk to include local CFLAGS and LDFLAGS.
 	# Those can probably be removed after 0.50 since upstream fixed it.
 	# Also set PREFIX and CC to the values we prefer.
 	sed -i \
