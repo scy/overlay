@@ -2,9 +2,9 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-inherit toolchain-funcs
-
 EAPI="2"
+
+inherit toolchain-funcs
 
 DESCRIPTION="An irssi plugin providing Jabber/XMPP support"
 HOMEPAGE="http://cybione.org/~irssi-xmpp/"
@@ -21,7 +21,7 @@ RDEPEND="${DEPEND}"
 
 src_prepare() {
 	# Patch config.mk to allow external CFLAGS and LDFLAGS.
-	# This can be removed after 0.50 since upstream fixed it.
+	# This can probably be removed after 0.50 since upstream fixed it.
 	sed -i -e "s#^CFLAGS = #CFLAGS = ${CFLAGS} #" \
 		-e "s#^LDFLAGS = #LDFLAGS = ${LDFLAGS} #" \
 		config.mk || die "patching config.mk failed"
@@ -35,8 +35,7 @@ src_compile() {
 }
 
 src_install() {
-	emake \
-		DESTDIR="${D}" PREFIX="/usr" \
+	emake CC="$(tc-getCC)" DESTDIR="${D}" PREFIX="/usr" \
 		IRSSI_DOC="/usr/share/doc/${PF}" \
 		install || die "install failed"
 }
